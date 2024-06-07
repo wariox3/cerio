@@ -13,7 +13,7 @@ class Solicitud(models.Model):
     estado_asignado = models.BooleanField(default = False)
     carroceria = models.ForeignKey(Carroceria, on_delete=models.PROTECT,related_name='solicitudes_carroceria_rel')
     usuario = models.ForeignKey(User, on_delete=models.PROTECT,related_name='solicitudes_usuario_rel')
-    usuario_asignado = models.ForeignKey(User, on_delete=models.PROTECT,related_name='solicitudes_usuario_asignado_rel')
+    usuario_asignado = models.ForeignKey(User, on_delete=models.PROTECT, null=True, related_name='solicitudes_usuario_asignado_rel')
     ciudad_origen = models.ForeignKey(Ciudad, on_delete=models.PROTECT,related_name='solicitudes_ciudad_origen_rel')
     ciudad_destino = models.ForeignKey(Ciudad, on_delete=models.PROTECT,related_name='solicitudes_ciudad_destino_rel')
     
