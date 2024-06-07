@@ -36,8 +36,7 @@ class UsuarioViewSet(GenericViewSet, UpdateModelMixin):
             raw["vence"] = datetime.now().date() + timedelta(days=1) 
             verificacion_serializer = VerificacionSerializador(data = raw)
             if verificacion_serializer.is_valid():                                             
-                verificacion_serializer.save()
-                dominio = config('DOMINIO_FRONTEND')
+                verificacion_serializer.save()                
                 #correo = Correo()             
                 #contenido='Enlace para verificar https://' + dominio + '/auth/verificacion/' + token                    
                 #correo.enviar(usuario.correo, 'Debe verificar su cuenta reddoc', contenido)   
@@ -93,8 +92,7 @@ class UsuarioViewSet(GenericViewSet, UpdateModelMixin):
                 raw["accion"] = "clave"
                 verificacion_serializer = VerificacionSerializador(data = raw)
                 if verificacion_serializer.is_valid():                                             
-                    verificacion_serializer.save()
-                    dominio = config('DOMINIO_FRONTEND')
+                    verificacion_serializer.save()                    
                     #correo = Correo() 
                     #contenido='Enlace para cambiar la clave https://' + dominio + '/auth/clave/cambiar/' + token
                     #correo.enviar(usuario.correo, 'Solicitud cambio clave', contenido) 
